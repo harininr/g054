@@ -1,0 +1,163 @@
+.root {
+  --sim-bg: #070d1a;
+  --sim-surface: #0f1929;
+  --sim-surface-2: #162035;
+  --sim-surface-3: #1c2a42;
+  --sim-border: rgba(255,255,255,0.07);
+  --sim-border-strong: rgba(255,255,255,0.13);
+  --sim-border-accent: rgba(180,30,65,0.4);
+  --sim-accent: #8b1a3e;
+  --sim-accent-2: #a52842;
+  --sim-accent-light: #c4405e;
+  --sim-accent-glow: rgba(139,26,62,0.35);
+  --sim-burgundy: #6b1230;
+  --sim-text: #e6edf5;
+  --sim-text-2: #8fa5c0;
+  --sim-text-3: #506282;
+  --sim-text-muted: #334e6e;
+  --sim-completed: #10b981;
+  --sim-completed-bg: rgba(16,185,129,0.12);
+  --sim-pending: #f59e0b;
+  --sim-pending-bg: rgba(245,158,11,0.12);
+  --sim-upcoming: #3d5a7a;
+  --sim-blue-gray: #0e1c2f;
+  --sim-code-bg: #081325;
+  --sim-shadow-sm: 0 2px 8px rgba(0,0,0,0.5);
+  --sim-shadow-md: 0 4px 24px rgba(0,0,0,0.6);
+  --sim-shadow-lg: 0 8px 40px rgba(0,0,0,0.7);
+  --sim-shadow-accent: 0 0 32px rgba(139,26,62,0.3);
+  min-height: 100vh;
+  background: var(--sim-bg);
+  color: var(--sim-text);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.layout {
+  display: flex;
+  min-height: calc(100vh - 64px);
+  margin-top: 64px;
+}
+
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  background: var(--sim-surface);
+  border-right: 1px solid var(--sim-border);
+  position: sticky;
+  top: 64px;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sim-border-strong) transparent;
+}
+
+.main {
+  flex: 1;
+  overflow-x: hidden;
+  min-width: 0;
+}
+
+/* Presentation overlay */
+.presOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--sim-bg);
+  display: flex;
+  flex-direction: column;
+  font-size: 1.15em;
+}
+
+.presHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 2rem;
+  border-bottom: 1px solid var(--sim-border);
+  flex-shrink: 0;
+  background: var(--sim-surface);
+}
+
+.presTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sim-accent-light);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.presBadge {
+  background: var(--sim-accent);
+  color: #fff;
+  font-size: 0.65rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+  letter-spacing: 0.08em;
+}
+
+.presContent {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.presSidebar {
+  width: 260px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--sim-border);
+  overflow-y: auto;
+  background: var(--sim-surface);
+}
+
+.presMain {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.presFooter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  border-top: 1px solid var(--sim-border);
+  background: var(--sim-surface);
+  flex-shrink: 0;
+}
+
+.exitPresBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid var(--sim-border-strong);
+  border-radius: 0.5rem;
+  color: var(--sim-text-2);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.04em;
+}
+
+.exitPresBtn:hover {
+  background: var(--sim-surface-2);
+  color: var(--sim-text);
+  border-color: var(--sim-border-strong);
+}
+
+@media (max-width: 1024px) {
+  .sidebar { width: 240px; }
+}
+
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .layout { flex-direction: column; }
+  .presContent { flex-direction: column; }
+  .presSidebar { display: none; }
+}
